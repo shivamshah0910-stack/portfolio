@@ -1,22 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Developer Portfolio</title>
+    <title>Shivam | Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-slate-900 text-slate-100 min-h-screen font-sans">
-    <header class="max-w-4xl mx-auto px-6 py-12">
-        <h1 class="text-4xl font-bold tracking-tight text-white mb-2">Software & Systems Engineering</h1>
-        <p class="text-slate-400 text-lg">Building high-impact technical projects and algorithmic solutions.</p>
-    </header>
+<body class="bg-slate-900 text-slate-100 font-sans antialiased selection:bg-teal-300 selection:text-teal-900">
 
-    <main class="max-w-4xl mx-auto px-6 space-y-8">
-        <section class="bg-slate-800 p-6 rounded-xl border border-slate-700">
-            <h2 class="text-xl font-semibold text-white mb-2">Active Engineering Projects</h2>
-            <p class="text-slate-300">Setting up local environment, Git version control, and GitHub integration.</p>
-        </section>
-    </main>
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-slate-900/80 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="#" class="text-xl font-bold tracking-tight text-white">Shivam<span class="text-teal-400">.</span></a>
+            <div class="flex gap-6 text-sm font-medium text-slate-300">
+                <a href="#about" class="hover:text-teal-400 transition">About</a>
+                <a href="#projects" class="hover:text-teal-400 transition">Projects</a>
+                <a href="#contact" class="hover:text-teal-400 transition">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center pt-16 px-6 max-w-5xl mx-auto">
+        <div class="space-y-6">
+            <p class="text-teal-400 font-mono text-sm tracking-wide">Hi, my name is</p>
+            <h1 class="text-5xl sm:text-7xl font-extrabold text-slate-100 tracking-tight">
+                Shivam.
+            </h1>
+            <h2 class="text-3xl sm:text-5xl font-bold text-slate-400 tracking-tight">
+                Building efficient software and digital solutions.
+            </h2>
+            <p class="max-w-xl text-slate-400 text-base sm:text-lg leading-relaxed">
+                I'm a developer focused on building clean web applications, solving complex problems, and exploring algorithms and hardware systems.
+            </p>
+            <div class="pt-4 flex gap-4">
+                <a href="#projects" class="inline-block bg-teal-500 hover:bg-teal-400 text-slate-950 font-semibold px-6 py-3 rounded-lg transition">
+                    View My Work
+                </a>
+                <a href="#contact" class="inline-block border border-slate-700 hover:border-teal-400 text-slate-300 hover:text-teal-400 font-semibold px-6 py-3 rounded-lg transition">
+                    Get in Touch
+                </a>
+            </div>
+        </div>
+    </section>
+
 </body>
 </html>
