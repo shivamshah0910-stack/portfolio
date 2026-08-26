@@ -85,6 +85,31 @@
             border-color: rgba(94, 234, 212, 0.45);
             box-shadow: 0 18px 36px rgba(15, 23, 42, 0.65);
         }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            animation: revealUp 0.9s ease forwards;
+        }
+
+        .delay-1 { animation-delay: 0.12s; }
+        .delay-2 { animation-delay: 0.24s; }
+        .delay-3 { animation-delay: 0.36s; }
+
+        @keyframes revealUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hover-lift {
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+        }
+
+        .hover-lift:hover {
+            transform: translateY(-4px);
+        }
     </style>
 </head>
 <body class="bg-slate-900 text-slate-100 font-sans antialiased selection:bg-teal-300 selection:text-teal-900">
@@ -102,7 +127,7 @@
     <main id="top">
         <section class="min-h-screen max-w-5xl mx-auto px-6 pt-28 pb-16 flex items-center">
             <div class="grid lg:grid-cols-[1.3fr_0.7fr] items-center gap-12 w-full">
-                <div class="space-y-6">
+                <div class="space-y-6 reveal delay-1">
                     <p class="font-mono text-sm tracking-[0.2em] text-cyan-300 uppercase">Hi, my name is</p>
                     <div>
                         <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-none text-white">
@@ -115,7 +140,7 @@
                     <p class="max-w-xl text-slate-400 text-base sm:text-lg leading-relaxed">
                         I’m a developer focused on clean web experiences, algorithmic problem solving, and building tools that are practical, scalable, and thoughtful.
                     </p>
-                    <div class="flex flex-wrap gap-4 pt-2">
+                    <div class="flex flex-wrap gap-4 pt-2 reveal delay-2">
                         <a href="#projects" class="primary-btn inline-block font-semibold px-6 py-3 rounded-lg transition">
                             View My Work
                         </a>
@@ -125,9 +150,9 @@
                     </div>
                 </div>
 
-                <div class="relative">
+                <div class="relative reveal delay-3">
                     <div class="absolute -inset-4 rounded-3xl bg-teal-500/10 blur-2xl"></div>
-                    <div class="status-panel relative rounded-2xl p-6">
+                    <div class="status-panel relative rounded-2xl p-6 hover-lift">
                         <div class="flex items-center justify-between pb-4 border-b border-slate-700">
                             <span class="text-sm text-slate-400 font-mono">Status</span>
                             <span class="inline-flex items-center gap-2 text-xs font-medium text-emerald-300">
@@ -157,7 +182,7 @@
             </div>
         </section>
 
-        <section id="about" class="py-24 px-6 max-w-5xl mx-auto border-t border-slate-800">
+        <section id="about" class="py-24 px-6 max-w-5xl mx-auto border-t border-slate-800 reveal delay-1">
             <h2 class="text-3xl font-bold text-slate-100 mb-8 flex items-center gap-3">
                 <span class="text-teal-400 font-mono text-xl">01.</span> About Me
             </h2>
@@ -237,7 +262,7 @@
             </div>
         </section>
 
-        <section id="contact" class="py-24 px-6 max-w-3xl mx-auto text-center border-t border-slate-800">
+        <section id="contact" class="py-24 px-6 max-w-3xl mx-auto text-center border-t border-slate-800 reveal delay-1">
             <p class="text-cyan-300 font-mono text-sm mb-2">03. What's Next?</p>
             <h2 class="text-4xl font-bold text-slate-100 mb-4">Get In Touch</h2>
             <p class="text-slate-400 text-base leading-relaxed mb-8">
@@ -250,15 +275,15 @@
             </div>
 
             <div class="mt-8 flex items-center justify-center gap-4">
-                <a href="https://github.com/shivamshah0910-stack" target="_blank" rel="noreferrer" class="social-rail group flex h-12 w-12 items-center justify-center rounded-full text-slate-300 transition hover:-translate-y-0.5 hover:text-teal-400" aria-label="GitHub profile">
+                <a href="https://github.com/shivamshah0910-stack" target="_blank" rel="noreferrer" class="social-rail hover-lift group flex h-12 w-12 items-center justify-center rounded-full text-slate-300 transition hover:text-teal-400" aria-label="GitHub profile">
                     <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
                 </a>
 
-                <a href="https://instagram.com/shivam.shah22" target="_blank" rel="noreferrer" class="social-rail group flex h-12 w-12 items-center justify-center rounded-full text-slate-300 transition hover:-translate-y-0.5 hover:text-pink-400" aria-label="Instagram profile">
+                <a href="https://instagram.com/shivam.shah22" target="_blank" rel="noreferrer" class="social-rail hover-lift group flex h-12 w-12 items-center justify-center rounded-full text-slate-300 transition hover:text-pink-400" aria-label="Instagram profile">
                     <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm0 2a3 3 0 00-3 3v10a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3H7zm5 3.5A5.5 5.5 0 1112 18.5 5.5 5.5 0 0112 7.5zm0 2A3.5 3.5 0 1012 16.5 3.5 3.5 0 0012 9.5zm5.25-3.2a1.25 1.25 0 111.25 1.25 1.25 1.25 0 01-1.25-1.25z"/></svg>
                 </a>
 
-                <a href="https://www.linkedin.com/in/shivam-shah-011960407/" target="_blank" rel="noreferrer" class="social-rail group flex h-12 w-12 items-center justify-center rounded-full text-slate-300 transition hover:-translate-y-0.5 hover:text-blue-400" aria-label="LinkedIn profile">
+                <a href="https://www.linkedin.com/in/shivam-shah-011960407/" target="_blank" rel="noreferrer" class="social-rail hover-lift group flex h-12 w-12 items-center justify-center rounded-full text-slate-300 transition hover:text-blue-400" aria-label="LinkedIn profile">
                     <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.94 8.5A1.56 1.56 0 115.38 8.5a1.56 1.56 0 011.56 0zM5.38 10.4h2.94v8.1H5.38zm5.02 0h2.82v1.1h.04c.39-.75 1.35-1.54 2.78-1.54 2.97 0 3.52 1.95 3.52 4.48v6.06h-2.94v-5.67c0-1.35-.03-3.09-1.88-3.09-1.89 0-2.18 1.47-2.18 2.99v5.77h-2.94z"/></svg>
                 </a>
             </div>
