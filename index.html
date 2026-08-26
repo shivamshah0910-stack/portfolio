@@ -3,16 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of Shivam — developer focused on software, algorithms, and digital experiences.">
     <title>Shivam | Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-slate-900 text-slate-100 font-sans antialiased selection:bg-teal-300 selection:text-teal-900">
-
-    <!-- Navigation -->
     <nav class="fixed top-0 w-full z-50 bg-slate-900/80 backdrop-blur-md border-b border-slate-800">
         <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
-            <a href="#" class="text-xl font-bold tracking-tight text-white">Shivam<span class="text-teal-400">.</span></a>
-            <div class="flex gap-6 text-sm font-medium text-slate-300">
+            <a href="#top" class="text-xl font-bold tracking-tight text-white">Shivam<span class="text-teal-400">.</span></a>
+            <div class="flex items-center gap-6 text-sm font-medium text-slate-300">
                 <a href="#about" class="hover:text-teal-400 transition">About</a>
                 <a href="#projects" class="hover:text-teal-400 transition">Projects</a>
                 <a href="#contact" class="hover:text-teal-400 transition">Contact</a>
@@ -20,124 +19,163 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="min-h-screen flex items-center justify-center pt-16 px-6 max-w-5xl mx-auto">
-        <div class="space-y-6">
-            <p class="text-teal-400 font-mono text-sm tracking-wide">Hi, my name is</p>
-            <h1 class="text-5xl sm:text-7xl font-extrabold text-slate-100 tracking-tight">
-                Shivam.
-            </h1>
-            <h2 class="text-3xl sm:text-5xl font-bold text-slate-400 tracking-tight">
-                Building efficient software and digital solutions.
+    <main id="top">
+        <section class="min-h-screen max-w-5xl mx-auto px-6 pt-28 pb-16 flex items-center">
+            <div class="grid lg:grid-cols-[1.3fr_0.7fr] items-center gap-12 w-full">
+                <div class="space-y-6">
+                    <p class="text-teal-400 font-mono text-sm tracking-wide">Hi, my name is</p>
+                    <div>
+                        <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-slate-100 tracking-tight leading-none">
+                            Shivam.
+                        </h1>
+                        <h2 class="mt-4 text-2xl sm:text-4xl font-bold text-slate-400 tracking-tight">
+                            Building efficient software and digital solutions.
+                        </h2>
+                    </div>
+                    <p class="max-w-xl text-slate-400 text-base sm:text-lg leading-relaxed">
+                        I’m a developer focused on clean web experiences, algorithmic problem solving, and building tools that are practical, scalable, and thoughtful.
+                    </p>
+                    <div class="flex flex-wrap gap-4 pt-2">
+                        <a href="#projects" class="inline-block bg-teal-500 hover:bg-teal-400 text-slate-950 font-semibold px-6 py-3 rounded-lg transition shadow-lg shadow-teal-500/20">
+                            View My Work
+                        </a>
+                        <a href="#contact" class="inline-block border border-slate-700 hover:border-teal-400 text-slate-300 hover:text-teal-400 font-semibold px-6 py-3 rounded-lg transition">
+                            Get in Touch
+                        </a>
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <div class="absolute -inset-4 rounded-3xl bg-teal-500/10 blur-2xl"></div>
+                    <div class="relative bg-slate-800/80 border border-slate-700 rounded-2xl p-6 shadow-2xl shadow-slate-950/30">
+                        <div class="flex items-center justify-between pb-4 border-b border-slate-700">
+                            <span class="text-sm text-slate-400 font-mono">Status</span>
+                            <span class="inline-flex items-center gap-2 text-xs font-medium text-emerald-300">
+                                <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
+                                Available for work
+                            </span>
+                        </div>
+
+                        <div class="mt-6 space-y-5">
+                            <div>
+                                <p class="text-slate-500 font-mono text-xs uppercase tracking-[0.2em]">Focus</p>
+                                <p class="mt-2 text-lg font-semibold text-slate-100">Frontend systems, automation, and problem solving</p>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4 text-sm">
+                                <div class="bg-slate-900/70 border border-slate-700 rounded-xl p-4">
+                                    <p class="text-slate-500 font-mono text-[10px] uppercase tracking-[0.2em]">Projects</p>
+                                    <p class="mt-2 text-2xl font-bold text-teal-400">5+</p>
+                                </div>
+                                <div class="bg-slate-900/70 border border-slate-700 rounded-xl p-4">
+                                    <p class="text-slate-500 font-mono text-[10px] uppercase tracking-[0.2em]">Stack</p>
+                                    <p class="mt-2 text-lg font-semibold text-slate-100">Web + Algorithms</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="py-24 px-6 max-w-5xl mx-auto border-t border-slate-800">
+            <h2 class="text-3xl font-bold text-slate-100 mb-8 flex items-center gap-3">
+                <span class="text-teal-400 font-mono text-xl">01.</span> About Me
             </h2>
-            <p class="max-w-xl text-slate-400 text-base sm:text-lg leading-relaxed">
-                I'm a developer focused on building clean web applications, solving complex problems, and exploring algorithms and hardware systems.
+            <div class="grid md:grid-cols-3 gap-12">
+                <div class="md:col-span-2 space-y-4 text-slate-400 text-base leading-relaxed">
+                    <p>
+                        I enjoy building functional, well-structured digital experiences and tackling complex technical challenges. Whether working on front-end interfaces, back-end logic, or system-level thinking, I prioritize efficiency, clarity, and clean execution.
+                    </p>
+                    <p>
+                        My interests sit at the intersection of software engineering, algorithms, and practical problem solving. I like turning ideas into usable products and learning through hands-on building.
+                    </p>
+                    <p>
+                        Here are a few tools and technologies I work with:
+                    </p>
+                    <ul class="grid sm:grid-cols-2 gap-2 font-mono text-sm text-slate-300 pt-2">
+                        <li class="flex items-center gap-2"><span class="text-teal-400">▹</span> HTML5 / CSS3</li>
+                        <li class="flex items-center gap-2"><span class="text-teal-400">▹</span> JavaScript (ES6+)</li>
+                        <li class="flex items-center gap-2"><span class="text-teal-400">▹</span> Tailwind CSS</li>
+                        <li class="flex items-center gap-2"><span class="text-teal-400">▹</span> Git & GitHub</li>
+                        <li class="flex items-center gap-2"><span class="text-teal-400">▹</span> Python</li>
+                        <li class="flex items-center gap-2"><span class="text-teal-400">▹</span> C++ / Hardware Systems</li>
+                    </ul>
+                </div>
+                <div class="flex justify-center items-start">
+                    <div class="w-52 h-52 rounded-2xl bg-slate-800 border-2 border-slate-700 flex items-center justify-center text-slate-500 font-mono text-sm text-center p-4 shadow-xl shadow-slate-950/30">
+                        [ Your Image Here ]
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="py-24 px-6 max-w-5xl mx-auto border-t border-slate-800">
+            <h2 class="text-3xl font-bold text-slate-100 mb-8 flex items-center gap-3">
+                <span class="text-teal-400 font-mono text-xl">02.</span> Featured Projects
+            </h2>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <article class="bg-slate-800/50 border border-slate-700/60 rounded-xl p-6 flex flex-col justify-between hover:border-teal-500/50 transition group">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-teal-400 font-mono text-xs">Featured Project</span>
+                            <a href="https://github.com/shivamshah0910-stack" target="_blank" rel="noreferrer" class="text-slate-400 hover:text-teal-400 transition" aria-label="GitHub profile">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                            </a>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-100 group-hover:text-teal-400 transition mb-2">Algorithmic Systems & Data Engines</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                            Custom algorithms and data structure work focused on optimization, performance, and structured problem-solving.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-2 font-mono text-xs text-teal-400/90">
+                        <span class="bg-slate-900/80 px-2.5 py-1 rounded border border-slate-700">Python</span>
+                        <span class="bg-slate-900/80 px-2.5 py-1 rounded border border-slate-700">C++</span>
+                        <span class="bg-slate-900/80 px-2.5 py-1 rounded border border-slate-700">Algorithms</span>
+                    </div>
+                </article>
+
+                <article class="bg-slate-800/50 border border-slate-700/60 rounded-xl p-6 flex flex-col justify-between hover:border-teal-500/50 transition group">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-teal-400 font-mono text-xs">Featured Project</span>
+                            <a href="https://github.com/shivamshah0910-stack" target="_blank" rel="noreferrer" class="text-slate-400 hover:text-teal-400 transition" aria-label="GitHub profile">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                            </a>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-100 group-hover:text-teal-400 transition mb-2">Developer Portfolio</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                            A modern, responsive portfolio built with clean HTML, Tailwind styling, and a simple GitHub Pages deployment workflow.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-2 font-mono text-xs text-teal-400/90">
+                        <span class="bg-slate-900/80 px-2.5 py-1 rounded border border-slate-700">HTML5</span>
+                        <span class="bg-slate-900/80 px-2.5 py-1 rounded border border-slate-700">Tailwind CSS</span>
+                        <span class="bg-slate-900/80 px-2.5 py-1 rounded border border-slate-700">Git</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="contact" class="py-24 px-6 max-w-3xl mx-auto text-center border-t border-slate-800">
+            <p class="text-teal-400 font-mono text-sm mb-2">03. What's Next?</p>
+            <h2 class="text-4xl font-bold text-slate-100 mb-4">Get In Touch</h2>
+            <p class="text-slate-400 text-base leading-relaxed mb-8">
+                I’m always open to discussing technical projects, software opportunities, or new ideas. Feel free to reach out.
             </p>
-            <div class="pt-4 flex gap-4">
-                <a href="#projects" class="inline-block bg-teal-500 hover:bg-teal-400 text-slate-950 font-semibold px-6 py-3 rounded-lg transition">
-                    View My Work
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="mailto:shivamshah0910@gmail.com" class="inline-block border-2 border-teal-400 text-teal-400 hover:bg-teal-400/10 font-mono font-semibold px-8 py-4 rounded-lg transition">
+                    Say Hello
                 </a>
-                <a href="#contact" class="inline-block border border-slate-700 hover:border-teal-400 text-slate-300 hover:text-teal-400 font-semibold px-6 py-3 rounded-lg transition">
-                    Get in Touch
+                <a href="https://github.com/shivamshah0910-stack" target="_blank" rel="noreferrer" class="inline-block border border-slate-700 text-slate-300 hover:border-teal-400 hover:text-teal-400 font-mono font-semibold px-6 py-4 rounded-lg transition">
+                    GitHub
                 </a>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-</body>
-<!-- About Section -->
-    <section id="about" class="py-24 px-6 max-w-5xl mx-auto border-t border-slate-800">
-        <h2 class="text-3xl font-bold text-slate-100 mb-8 flex items-center gap-3">
-            <span class="text-teal-400 font-mono text-xl">01.</span> About Me
-        </h2>
-        <div class="grid md:grid-cols-3 gap-12">
-            <div class="md:col-span-2 space-y-4 text-slate-400 text-base leading-relaxed">
-                <p>
-                    I enjoy building functional, well-structured digital experiences and tackling complex technical challenges. Whether working on frontend user interfaces, backend logic, or hardware integration, I prioritize efficiency, clarity, and clean execution.
-                </p>
-                <p>
-                    Here are a few technologies and tools I work with:
-                </p>
-                <ul class="grid grid-cols-2 gap-2 font-mono text-sm text-slate-300 pt-2">
-                    <li class="flex items-center gap-2"><span class="text-teal-400">▹</span> HTML5 / CSS3</li>
-                    <li class="flex items-center gap-2"><span class="text-teal-400">▹</span> JavaScript (ES6+)</li>
-                    <li class="flex items-center gap-2"><span class="text-teal-400">▹</span> Tailwind CSS</li>
-                    <li class="flex items-center gap-2"><span class="text-teal-400">▹</span> Git & GitHub</li>
-                    <li class="flex items-center gap-2"><span class="text-teal-400">▹</span> Python</li>
-                    <li class="flex items-center gap-2"><span class="text-teal-400">▹</span> C++ / Hardware Systems</li>
-                </ul>
-            </div>
-            <div class="flex justify-center items-start">
-                <div class="w-48 h-48 rounded-xl bg-slate-800 border-2 border-slate-700 flex items-center justify-center text-slate-500 font-mono text-sm text-center p-4">
-                    [ Your Image Here ]
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Projects Section -->
-    <section id="projects" class="py-24 px-6 max-w-5xl mx-auto border-t border-slate-800">
-        <h2 class="text-3xl font-bold text-slate-100 mb-8 flex items-center gap-3">
-            <span class="text-teal-400 font-mono text-xl">02.</span> Featured Projects
-        </h2>
-
-        <div class="grid md:grid-cols-2 gap-6">
-            <!-- Project 1 -->
-            <div class="bg-slate-800/50 border border-slate-700/60 rounded-xl p-6 flex flex-col justify-between hover:border-teal-500/50 transition group">
-                <div>
-                    <div class="flex items-center justify-between mb-4">
-                        <span class="text-teal-400 font-mono text-xs">Featured Project</span>
-                        <a href="https://github.com/shivamshah0910-stack" target="_blank" class="text-slate-400 hover:text-teal-400 transition">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-                        </a>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-100 group-hover:text-teal-400 transition mb-2">Algorithmic Systems & Data Engines</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
-                        Custom algorithms and data structure implementations focused on optimization, runtime efficiency, and structured problem-solving.
-                    </p>
-                </div>
-                <div class="flex flex-wrap gap-2 font-mono text-xs text-teal-400/90">
-                    <span class="bg-slate-900/80 px-2.5 py-1 rounded border border-slate-700">Python</span>
-                    <span class="bg-slate-900/80 px-2.5 py-1 rounded border border-slate-700">C++</span>
-                    <span class="bg-slate-900/80 px-2.5 py-1 rounded border border-slate-700">Algorithms</span>
-                </div>
-            </div>
-
-            <!-- Project 2 -->
-            <div class="bg-slate-800/50 border border-slate-700/60 rounded-xl p-6 flex flex-col justify-between hover:border-teal-500/50 transition group">
-                <div>
-                    <div class="flex items-center justify-between mb-4">
-                        <span class="text-teal-400 font-mono text-xs">Featured Project</span>
-                        <a href="https://github.com/shivamshah0910-stack" target="_blank" class="text-slate-400 hover:text-teal-400 transition">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-                        </a>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-100 group-hover:text-teal-400 transition mb-2">Personal Developer Portfolio</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
-                        Modern responsive portfolio engineered with HTML5, Tailwind CSS, Git version control, and deployed via GitHub Pages pipeline.
-                    </p>
-                </div>
-                <div class="flex flex-wrap gap-2 font-mono text-xs text-teal-400/90">
-                    <span class="bg-slate-900/80 px-2.5 py-1 rounded border border-slate-700">HTML5</span>
-                    <span class="bg-slate-900/80 px-2.5 py-1 rounded border border-slate-700">Tailwind CSS</span>
-                    <span class="bg-slate-900/80 px-2.5 py-1 rounded border border-slate-700">Git / Pages</span>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Contact Section -->
-    <section id="contact" class="py-24 px-6 max-w-3xl mx-auto text-center border-t border-slate-800">
-        <p class="text-teal-400 font-mono text-sm mb-2">03. What's Next?</p>
-        <h2 class="text-4xl font-bold text-slate-100 mb-4">Get In Touch</h2>
-        <p class="text-slate-400 text-base leading-relaxed mb-8">
-            I'm always open to discussing technical projects, software engineering opportunities, or new ideas. Feel free to reach out!
-        </p>
-        <a href="mailto:shivamshah0910@gmail.com" class="inline-block border-2 border-teal-400 text-teal-400 hover:bg-teal-400/10 font-mono font-semibold px-8 py-4 rounded-lg transition">
-            Say Hello
-        </a>
-    </section>
-
-    <!-- Footer -->
     <footer class="py-8 text-center text-slate-500 font-mono text-xs border-t border-slate-800/50">
         <p>Designed & Built by Shivam</p>
     </footer>
+</body>
 </html>
