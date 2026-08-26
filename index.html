@@ -6,9 +6,89 @@
     <meta name="description" content="Portfolio of Shivam — developer focused on software, algorithms, and digital experiences.">
     <title>Shivam | Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --bg: #07101d;
+            --bg-soft: #0d1728;
+            --panel: rgba(15, 23, 42, 0.82);
+            --panel-strong: #101c30;
+            --panel-alt: #111d2f;
+            --line: rgba(148, 163, 184, 0.18);
+            --text: #edf4ff;
+            --muted: #a7b7d6;
+            --accent: #8b5cf6;
+            --accent-2: #5eead4;
+            --accent-3: #fbbf24;
+            --accent-4: #38bdf8;
+            --shadow: rgba(2, 6, 23, 0.8);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            background:
+                radial-gradient(circle at top left, rgba(139, 92, 246, 0.18), transparent 32%),
+                radial-gradient(circle at bottom right, rgba(94, 234, 212, 0.12), transparent 28%),
+                var(--bg);
+            color: var(--text);
+        }
+
+        .site-nav {
+            background: rgba(7, 16, 29, 0.72);
+            border-bottom: 1px solid var(--line);
+            backdrop-filter: blur(16px);
+        }
+
+        .primary-btn {
+            background: linear-gradient(135deg, var(--accent), var(--accent-4));
+            color: white;
+            box-shadow: 0 18px 28px rgba(56, 189, 248, 0.14), 0 10px 18px rgba(139, 92, 246, 0.18);
+        }
+
+        .primary-btn:hover {
+            filter: brightness(1.08);
+            transform: translateY(-1px);
+        }
+
+        .secondary-btn {
+            border: 1px solid rgba(148, 163, 184, 0.28);
+            background: rgba(15, 23, 42, 0.4);
+            color: #dfe9ff;
+        }
+
+        .secondary-btn:hover {
+            border-color: rgba(94, 234, 212, 0.7);
+            color: var(--accent-2);
+            transform: translateY(-1px);
+        }
+
+        .status-panel,
+        .project-card,
+        .info-panel {
+            background: linear-gradient(180deg, rgba(17, 29, 47, 0.92), rgba(12, 23, 38, 0.82));
+            border: 1px solid var(--line);
+            box-shadow: 0 18px 35px var(--shadow);
+        }
+
+        .social-rail a {
+            background: rgba(12, 23, 38, 0.85);
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            box-shadow: 0 10px 20px rgba(2, 6, 23, 0.35);
+        }
+
+        .social-rail a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 24px rgba(2, 6, 23, 0.45);
+        }
+
+        .project-card:hover {
+            border-color: rgba(94, 234, 212, 0.45);
+            box-shadow: 0 18px 36px rgba(15, 23, 42, 0.65);
+        }
+    </style>
 </head>
 <body class="bg-slate-900 text-slate-100 font-sans antialiased selection:bg-teal-300 selection:text-teal-900">
-    <nav class="fixed top-0 w-full z-50 bg-slate-900/80 backdrop-blur-md border-b border-slate-800">
+    <nav class="site-nav fixed top-0 w-full z-50 backdrop-blur-md">
         <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
             <a href="#top" class="text-xl font-bold tracking-tight text-white">Shivam<span class="text-teal-400">.</span></a>
             <div class="flex items-center gap-6 text-sm font-medium text-slate-300">
@@ -19,16 +99,16 @@
         </div>
     </nav>
 
-    <div class="fixed left-5 bottom-6 z-40 hidden md:flex flex-col gap-3">
-        <a href="https://github.com/shivamshah0910-stack" target="_blank" rel="noreferrer" class="group flex h-12 w-12 items-center justify-center rounded-full border border-slate-700 bg-slate-900/80 text-slate-300 shadow-lg shadow-slate-950/30 transition hover:-translate-y-0.5 hover:border-teal-400 hover:bg-teal-500/10 hover:text-teal-400" aria-label="GitHub profile">
+    <div class="social-rail fixed left-5 bottom-6 z-40 hidden md:flex flex-col gap-3">
+        <a href="https://github.com/shivamshah0910-stack" target="_blank" rel="noreferrer" class="group flex h-12 w-12 items-center justify-center rounded-full text-slate-300 transition hover:-translate-y-0.5 hover:text-teal-400" aria-label="GitHub profile">
             <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
         </a>
 
-        <a href="https://instagram.com/shivam.shah22" target="_blank" rel="noreferrer" class="group flex h-12 w-12 items-center justify-center rounded-full border border-slate-700 bg-slate-900/80 text-slate-300 shadow-lg shadow-slate-950/30 transition hover:-translate-y-0.5 hover:border-pink-400 hover:bg-pink-500/10 hover:text-pink-400" aria-label="Instagram profile">
+        <a href="https://instagram.com/shivam.shah22" target="_blank" rel="noreferrer" class="group flex h-12 w-12 items-center justify-center rounded-full text-slate-300 transition hover:-translate-y-0.5 hover:text-pink-400" aria-label="Instagram profile">
             <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm0 2a3 3 0 00-3 3v10a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3H7zm5 3.5A5.5 5.5 0 1112 18.5 5.5 5.5 0 0112 7.5zm0 2A3.5 3.5 0 1012 16.5 3.5 3.5 0 0012 9.5zm5.25-3.2a1.25 1.25 0 111.25 1.25 1.25 1.25 0 01-1.25-1.25z"/></svg>
         </a>
 
-        <a href="https://www.linkedin.com/in/shivam-shah-011960407/" target="_blank" rel="noreferrer" class="group flex h-12 w-12 items-center justify-center rounded-full border border-slate-700 bg-slate-900/80 text-slate-300 shadow-lg shadow-slate-950/30 transition hover:-translate-y-0.5 hover:border-blue-400 hover:bg-blue-500/10 hover:text-blue-400" aria-label="LinkedIn profile">
+        <a href="https://www.linkedin.com/in/shivam-shah-011960407/" target="_blank" rel="noreferrer" class="group flex h-12 w-12 items-center justify-center rounded-full text-slate-300 transition hover:-translate-y-0.5 hover:text-blue-400" aria-label="LinkedIn profile">
             <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.94 8.5A1.56 1.56 0 115.38 8.5a1.56 1.56 0 011.56 0zM5.38 10.4h2.94v8.1H5.38zm5.02 0h2.82v1.1h.04c.39-.75 1.35-1.54 2.78-1.54 2.97 0 3.52 1.95 3.52 4.48v6.06h-2.94v-5.67c0-1.35-.03-3.09-1.88-3.09-1.89 0-2.18 1.47-2.18 2.99v5.77h-2.94z"/></svg>
         </a>
     </div>
@@ -50,10 +130,10 @@
                         I’m a developer focused on clean web experiences, algorithmic problem solving, and building tools that are practical, scalable, and thoughtful.
                     </p>
                     <div class="flex flex-wrap gap-4 pt-2">
-                        <a href="#projects" class="inline-block bg-teal-500 hover:bg-teal-400 text-slate-950 font-semibold px-6 py-3 rounded-lg transition shadow-lg shadow-teal-500/20">
+                        <a href="#projects" class="primary-btn inline-block font-semibold px-6 py-3 rounded-lg transition">
                             View My Work
                         </a>
-                        <a href="#contact" class="inline-block border border-slate-700 hover:border-teal-400 text-slate-300 hover:text-teal-400 font-semibold px-6 py-3 rounded-lg transition">
+                        <a href="#contact" class="secondary-btn inline-block font-semibold px-6 py-3 rounded-lg transition">
                             Get in Touch
                         </a>
                     </div>
@@ -61,7 +141,7 @@
 
                 <div class="relative">
                     <div class="absolute -inset-4 rounded-3xl bg-teal-500/10 blur-2xl"></div>
-                    <div class="relative bg-slate-800/80 border border-slate-700 rounded-2xl p-6 shadow-2xl shadow-slate-950/30">
+                    <div class="status-panel relative rounded-2xl p-6">
                         <div class="flex items-center justify-between pb-4 border-b border-slate-700">
                             <span class="text-sm text-slate-400 font-mono">Status</span>
                             <span class="inline-flex items-center gap-2 text-xs font-medium text-emerald-300">
@@ -76,11 +156,11 @@
                                 <p class="mt-2 text-lg font-semibold text-slate-100">Frontend systems, automation, and problem solving</p>
                             </div>
                             <div class="grid grid-cols-2 gap-4 text-sm">
-                                <div class="bg-slate-900/70 border border-slate-700 rounded-xl p-4">
+                                <div class="info-panel rounded-xl p-4">
                                     <p class="text-slate-500 font-mono text-[10px] uppercase tracking-[0.2em]">Projects</p>
                                     <p class="mt-2 text-2xl font-bold text-teal-400">5+</p>
                                 </div>
-                                <div class="bg-slate-900/70 border border-slate-700 rounded-xl p-4">
+                                <div class="info-panel rounded-xl p-4">
                                     <p class="text-slate-500 font-mono text-[10px] uppercase tracking-[0.2em]">Stack</p>
                                     <p class="mt-2 text-lg font-semibold text-slate-100">Web + Algorithms</p>
                                 </div>
@@ -178,7 +258,7 @@
                 I’m always open to discussing technical projects, software opportunities, or new ideas. Feel free to reach out.
             </p>
             <div class="flex justify-center">
-                <a href="mailto:shivamshah0910@gmail.com" class="inline-flex items-center justify-center border-2 border-teal-400 text-teal-400 hover:bg-teal-400/10 font-mono font-semibold px-8 py-4 rounded-lg transition" aria-label="Email Shivam">
+                <a href="mailto:shivamshah0910@gmail.com" class="primary-btn inline-flex items-center justify-center font-mono font-semibold px-8 py-4 rounded-lg transition" aria-label="Email Shivam">
                     Say Hello
                 </a>
             </div>
