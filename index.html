@@ -204,6 +204,30 @@
             transform: scaleX(1);
         }
 
+        .nav-link:focus-visible,
+        .menu-toggle:focus-visible,
+        .back-to-top:focus-visible {
+            outline: 2px solid var(--accent-2);
+            outline-offset: 4px;
+        }
+
+        .skip-link {
+            position: fixed;
+            left: 1rem;
+            top: -4rem;
+            z-index: 60;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            background: var(--accent-2);
+            color: #042f2e;
+            font-weight: 700;
+            transition: top 0.2s ease;
+        }
+
+        .skip-link:focus {
+            top: 1rem;
+        }
+
         .mobile-menu {
             display: none;
         }
@@ -258,18 +282,21 @@
     </style>
 </head>
 <body class="bg-slate-900 text-slate-100 font-sans antialiased selection:bg-teal-300 selection:text-teal-900">
+    <a href="#top" class="skip-link">Skip to content</a>
     <nav class="site-nav fixed top-0 w-full z-50 backdrop-blur-md">
         <div class="max-w-5xl mx-auto px-6 min-h-16 flex items-center justify-between relative">
-            <a href="#top" class="text-xl font-bold tracking-tight text-white">Shivam<span class="text-violet-400">.</span></a>
+            <a href="#top" class="text-xl font-bold tracking-tight text-white" aria-label="Shivam home">Shivam<span class="text-violet-400">.</span></a>
             <div class="desktop-menu flex items-center gap-6 text-sm font-medium text-slate-300">
+                <a href="#top" class="nav-link" data-section="top">Home</a>
                 <a href="#about" class="nav-link" data-section="about">About</a>
                 <a href="#projects" class="nav-link" data-section="projects">Projects</a>
                 <a href="#contact" class="nav-link" data-section="contact">Contact</a>
             </div>
-            <button id="menu-toggle" type="button" class="sm:hidden inline-flex h-10 w-10 items-center justify-center rounded-lg border border-slate-700 text-slate-200" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+            <button id="menu-toggle" type="button" class="menu-toggle sm:hidden inline-flex h-10 w-10 items-center justify-center rounded-lg border border-slate-700 text-slate-200" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu">
                 <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg>
             </button>
             <div id="mobile-menu" class="mobile-menu text-sm font-medium text-slate-300" aria-label="Mobile navigation">
+                <a href="#top" class="nav-link" data-section="top">Home</a>
                 <a href="#about" class="nav-link" data-section="about">About</a>
                 <a href="#projects" class="nav-link" data-section="projects">Projects</a>
                 <a href="#contact" class="nav-link" data-section="contact">Contact</a>
@@ -277,7 +304,7 @@
         </div>
     </nav>
 
-    <main id="top">
+    <main id="top" tabindex="-1">
         <section class="hero-scene min-h-screen max-w-5xl mx-auto px-6 pt-28 pb-16 flex items-center">
             <div class="hero-glow"></div>
             <div class="grid lg:grid-cols-[1.3fr_0.7fr] items-center gap-12 w-full relative z-10">
@@ -600,6 +627,23 @@
             });
         });
 
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && mobileMenu.classList.contains('is-open')) {
+                mobileMenu.classList.remove('is-open');
+                menuToggle.setAttribute('aria-expanded', 'false');
+                menuToggle.setAttribute('aria-label', 'Open navigation menu');
+                menuToggle.focus();
+            }
+        });
+
+        document.addEventListener('click', (event) => {
+            if (!mobileMenu.contains(event.target) && !menuToggle.contains(event.target)) {
+                mobileMenu.classList.remove('is-open');
+                menuToggle.setAttribute('aria-expanded', 'false');
+                menuToggle.setAttribute('aria-label', 'Open navigation menu');
+            }
+        });
+
         const navigationObserver = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (!entry.isIntersecting) return;
@@ -611,8 +655,17 @@
 
         sections.forEach((section) => navigationObserver.observe(section));
 
+        const setActiveNavigation = (sectionId) => {
+            navigationLinks.forEach((link) => {
+                link.classList.toggle('active', link.dataset.section === sectionId);
+            });
+        };
+
+        setActiveNavigation('top');
+
         window.addEventListener('scroll', () => {
             backToTop.classList.toggle('is-visible', window.scrollY > 500);
+            if (window.scrollY < 120) setActiveNavigation('top');
         }, { passive: true });
     </script>
 </body>
