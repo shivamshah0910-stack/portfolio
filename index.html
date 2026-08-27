@@ -625,18 +625,15 @@
         const emailButton = document.querySelector('#email-button');
         const emailStatus = document.querySelector('#email-status');
 
-        emailButton.addEventListener('click', async (event) => {
-            event.preventDefault();
+        emailButton.addEventListener('click', async () => {
             const emailAddress = 'shivamshah0910@gmail.com';
 
             try {
                 await navigator.clipboard.writeText(emailAddress);
                 emailStatus.textContent = 'Email address copied. Opening your email app...';
             } catch {
-                emailStatus.textContent = 'Email: shivamshah0910@gmail.com';
+                emailStatus.textContent = 'Opening your email app...';
             }
-
-            window.location.href = emailButton.href;
         });
 
         menuToggle.addEventListener('click', () => {
