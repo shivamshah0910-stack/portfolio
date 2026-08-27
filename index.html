@@ -176,16 +176,103 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        .nav-link {
+            position: relative;
+            transition: color 0.25s ease;
+        }
+
+        .nav-link::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -0.5rem;
+            height: 2px;
+            background: var(--accent-2);
+            transform: scaleX(0);
+            transform-origin: center;
+            transition: transform 0.25s ease;
+        }
+
+        .nav-link.active,
+        .nav-link:hover {
+            color: #99f6e4;
+        }
+
+        .nav-link.active::after {
+            transform: scaleX(1);
+        }
+
+        .mobile-menu {
+            display: none;
+        }
+
+        .mobile-menu.is-open {
+            display: block;
+        }
+
+        .back-to-top {
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(0.75rem);
+            transition: opacity 0.25s ease, transform 0.25s ease;
+        }
+
+        .back-to-top.is-visible {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 640px) {
+            .desktop-menu {
+                display: none;
+            }
+
+            .mobile-menu {
+                position: absolute;
+                top: 4.5rem;
+                left: 1.5rem;
+                right: 1.5rem;
+                padding: 0.5rem;
+                border-radius: 0.75rem;
+                background: rgba(9, 18, 32, 0.92);
+                border: 1px solid rgba(148, 163, 184, 0.18);
+                backdrop-filter: blur(18px);
+                -webkit-backdrop-filter: blur(18px);
+                box-shadow: 0 18px 40px rgba(2, 6, 23, 0.35);
+            }
+
+            .mobile-menu a {
+                display: block;
+                padding: 0.75rem 1rem;
+                border-radius: 0.5rem;
+            }
+
+            .mobile-menu a:hover,
+            .mobile-menu a.active {
+                background: rgba(94, 234, 212, 0.08);
+            }
+        }
     </style>
 </head>
 <body class="bg-slate-900 text-slate-100 font-sans antialiased selection:bg-teal-300 selection:text-teal-900">
     <nav class="site-nav fixed top-0 w-full z-50 backdrop-blur-md">
-        <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
+        <div class="max-w-5xl mx-auto px-6 min-h-16 flex items-center justify-between relative">
             <a href="#top" class="text-xl font-bold tracking-tight text-white">Shivam<span class="text-violet-400">.</span></a>
-            <div class="flex items-center gap-6 text-sm font-medium text-slate-300">
-                <a href="#about" class="hover:text-violet-300 transition">About</a>
-                <a href="#projects" class="hover:text-violet-300 transition">Projects</a>
-                <a href="#contact" class="hover:text-violet-300 transition">Contact</a>
+            <div class="desktop-menu flex items-center gap-6 text-sm font-medium text-slate-300">
+                <a href="#about" class="nav-link" data-section="about">About</a>
+                <a href="#projects" class="nav-link" data-section="projects">Projects</a>
+                <a href="#contact" class="nav-link" data-section="contact">Contact</a>
+            </div>
+            <button id="menu-toggle" type="button" class="sm:hidden inline-flex h-10 w-10 items-center justify-center rounded-lg border border-slate-700 text-slate-200" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+                <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg>
+            </button>
+            <div id="mobile-menu" class="mobile-menu text-sm font-medium text-slate-300" aria-label="Mobile navigation">
+                <a href="#about" class="nav-link" data-section="about">About</a>
+                <a href="#projects" class="nav-link" data-section="projects">Projects</a>
+                <a href="#contact" class="nav-link" data-section="contact">Contact</a>
             </div>
         </div>
     </nav>
@@ -476,6 +563,10 @@
         <p>Designed & Built by Shivam</p>
     </footer>
 
+    <a href="#top" class="back-to-top fixed bottom-6 right-6 z-40 h-11 w-11 rounded-full glass flex items-center justify-center text-teal-300" aria-label="Back to top">
+        <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5m-6 6 6-6 6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+
     <script>
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
@@ -488,6 +579,41 @@
         document.querySelectorAll('.section-reveal').forEach((element) => {
             observer.observe(element);
         });
+
+        const menuToggle = document.querySelector('#menu-toggle');
+        const mobileMenu = document.querySelector('#mobile-menu');
+        const navigationLinks = document.querySelectorAll('.nav-link');
+        const backToTop = document.querySelector('.back-to-top');
+        const sections = document.querySelectorAll('main section[id]');
+
+        menuToggle.addEventListener('click', () => {
+            const isOpen = mobileMenu.classList.toggle('is-open');
+            menuToggle.setAttribute('aria-expanded', String(isOpen));
+            menuToggle.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+        });
+
+        navigationLinks.forEach((link) => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('is-open');
+                menuToggle.setAttribute('aria-expanded', 'false');
+                menuToggle.setAttribute('aria-label', 'Open navigation menu');
+            });
+        });
+
+        const navigationObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+                navigationLinks.forEach((link) => {
+                    link.classList.toggle('active', link.dataset.section === entry.target.id);
+                });
+            });
+        }, { rootMargin: '-35% 0px -55% 0px' });
+
+        sections.forEach((section) => navigationObserver.observe(section));
+
+        window.addEventListener('scroll', () => {
+            backToTop.classList.toggle('is-visible', window.scrollY > 500);
+        }, { passive: true });
     </script>
 </body>
 </html>
