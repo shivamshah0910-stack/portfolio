@@ -573,10 +573,11 @@
                 For questions about my experience, projects, or engineering interests, please contact me by email. I welcome opportunities to learn, contribute, and collaborate.
             </p>
             <div class="flex justify-center">
-                <a href="mailto:shivamshah0910@gmail.com?subject=Engineering%20Portfolio%20Inquiry&body=Hello%20Shivam%2C%0A%0AI%20would%20like%20to%20connect%20with%20you%20about%20your%20portfolio." class="primary-btn inline-flex items-center justify-center font-mono font-semibold px-8 py-4 rounded-lg transition" aria-label="Email Shivam about his engineering portfolio">
+                <a id="email-button" href="mailto:shivamshah0910@gmail.com?subject=Engineering%20Portfolio%20Inquiry&body=Hello%20Shivam%2C%0A%0AI%20would%20like%20to%20connect%20with%20you%20about%20your%20portfolio." class="primary-btn inline-flex items-center justify-center font-mono font-semibold px-8 py-4 rounded-lg transition" aria-label="Email Shivam about his engineering portfolio">
                     Email Shivam
                 </a>
             </div>
+            <p id="email-status" class="mt-3 min-h-5 text-xs font-mono text-teal-300" role="status" aria-live="polite"></p>
             <a href="mailto:shivamshah0910@gmail.com" class="mt-4 inline-block text-sm font-mono text-slate-400 transition hover:text-teal-300">shivamshah0910@gmail.com</a>
 
             <div class="mt-8 flex items-center justify-center gap-4">
@@ -621,6 +622,22 @@
         const navigationLinks = document.querySelectorAll('.nav-link');
         const backToTop = document.querySelector('.back-to-top');
         const sections = document.querySelectorAll('main section[id]');
+        const emailButton = document.querySelector('#email-button');
+        const emailStatus = document.querySelector('#email-status');
+
+        emailButton.addEventListener('click', async (event) => {
+            event.preventDefault();
+            const emailAddress = 'shivamshah0910@gmail.com';
+
+            try {
+                await navigator.clipboard.writeText(emailAddress);
+                emailStatus.textContent = 'Email address copied. Opening your email app...';
+            } catch {
+                emailStatus.textContent = 'Email: shivamshah0910@gmail.com';
+            }
+
+            window.location.href = emailButton.href;
+        });
 
         menuToggle.addEventListener('click', () => {
             const isOpen = mobileMenu.classList.toggle('is-open');
