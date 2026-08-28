@@ -295,9 +295,9 @@
         }
 
         .back-to-top {
-            opacity: 0;
-            pointer-events: none;
-            transform: translateY(0.75rem);
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
             transition: opacity 0.25s ease, transform 0.25s ease;
         }
 
@@ -305,6 +305,18 @@
             opacity: 1;
             pointer-events: auto;
             transform: translateY(0);
+        }
+
+        .scroll-up-icon {
+            display: none;
+        }
+
+        .back-to-top.is-scrolled .scroll-down-icon {
+            display: none;
+        }
+
+        .back-to-top.is-scrolled .scroll-up-icon {
+            display: block;
         }
 
         @media (max-width: 640px) {
@@ -698,8 +710,9 @@
         <p>Designed & Built by Shivam Shah</p>
     </footer>
 
-    <a href="#top" class="back-to-top fixed bottom-6 right-6 z-40 h-11 w-11 rounded-full glass flex items-center justify-center text-teal-300" aria-label="Back to top">
-        <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5m-6 6 6-6 6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <a href="#contact" class="back-to-top fixed bottom-6 right-6 z-40 h-11 w-11 rounded-full glass flex items-center justify-center text-teal-300" aria-label="Go to bottom">
+        <svg class="scroll-down-icon h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14m6-6-6 6-6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg class="scroll-up-icon h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5m-6 6 6-6 6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </a>
 
     <script>
@@ -784,8 +797,23 @@
 
         setActiveNavigation('top');
 
+        const updateScrollButton = () => {
+            const isScrolled = window.scrollY >= 120;
+            backToTop.classList.toggle('is-scrolled', isScrolled);
+            backToTop.setAttribute('href', isScrolled ? '#top' : '#contact');
+            backToTop.setAttribute('aria-label', isScrolled ? 'Back to top' : 'Go to bottom');
+        };
+
+        updateScrollButton();
+
+        backToTop.addEventListener('click', (event) => {
+            event.preventDefault();
+            const target = document.querySelector(backToTop.getAttribute('href'));
+            target?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+
         window.addEventListener('scroll', () => {
-            backToTop.classList.toggle('is-visible', window.scrollY > 500);
+            updateScrollButton();
             if (window.scrollY < 120) setActiveNavigation('top');
         }, { passive: true });
     </script>
