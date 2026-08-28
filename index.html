@@ -41,12 +41,12 @@
                 inset 0 0 52px rgba(56, 189, 248, 0.08),
                 0 0 18px rgba(94, 234, 212, 0.12);
             pointer-events: none;
-            animation: edgePulse 5s ease-in-out infinite;
+            animation: edgePulse 8s ease-in-out infinite;
         }
 
         @keyframes edgePulse {
-            0%, 100% { opacity: 0.72; }
-            50% { opacity: 1; }
+            0%, 100% { opacity: 0.78; }
+            50% { opacity: 0.92; }
         }
 
         body {
@@ -231,12 +231,12 @@
         }
 
         .float-soft {
-            animation: floatSoft 4s ease-in-out infinite;
+            animation: floatSoft 6s ease-in-out infinite;
         }
 
         @keyframes floatSoft {
             0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-8px); }
+            50% { transform: translateY(-4px); }
         }
 
         .hero-scene {
@@ -266,7 +266,7 @@
             border-radius: 9999px;
             background: radial-gradient(circle, rgba(139, 92, 246, 0.25), rgba(94, 234, 212, 0.08), transparent 70%);
             filter: blur(34px);
-            animation: glowDrift 10s ease-in-out infinite alternate;
+            animation: glowDrift 16s ease-in-out infinite alternate;
             pointer-events: none;
         }
 
@@ -276,7 +276,7 @@
 
         @keyframes glowDrift {
             0% { transform: translate3d(0, 0, 0) scale(1); }
-            100% { transform: translate3d(20px, -18px, 0) scale(1.1); }
+            100% { transform: translate3d(10px, -8px, 0) scale(1.04); }
         }
 
         .section-reveal {
