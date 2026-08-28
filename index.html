@@ -96,6 +96,61 @@
             transform: translateY(-1px);
         }
 
+        button,
+        .primary-btn,
+        .secondary-btn,
+        .back-to-top,
+        .social-rail {
+            position: relative;
+            overflow: hidden;
+            isolation: isolate;
+        }
+
+        button:active,
+        .primary-btn:active,
+        .secondary-btn:active,
+        .back-to-top:active,
+        .social-rail:active {
+            animation: pressBounce 0.42s ease-out;
+        }
+
+        .press-ripple {
+            position: absolute;
+            width: 1rem;
+            height: 1rem;
+            border-radius: 9999px;
+            background: rgba(255, 255, 255, 0.42);
+            transform: translate(-50%, -50%) scale(0);
+            pointer-events: none;
+            z-index: 0;
+            animation: pressRipple 0.65s ease-out forwards;
+        }
+
+        @keyframes pressBounce {
+            0% { transform: scale(1); }
+            35% { transform: scale(0.94) translateY(1px); }
+            70% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes pressRipple {
+            to {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(18);
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            button:active,
+            .primary-btn:active,
+            .secondary-btn:active,
+            .back-to-top:active,
+            .social-rail:active,
+            .press-ripple {
+                animation: none;
+            }
+        }
+
         .secondary-btn {
             border: 1px solid rgba(148, 163, 184, 0.28);
             background: rgba(15, 23, 42, 0.35);
@@ -735,6 +790,20 @@
         const sections = document.querySelectorAll('main section[id]');
         const emailButton = document.querySelector('#email-button');
         const emailStatus = document.querySelector('#email-status');
+
+        document.querySelectorAll('button, .primary-btn, .secondary-btn, .back-to-top, .social-rail').forEach((element) => {
+            element.addEventListener('click', (event) => {
+                const ripple = document.createElement('span');
+                const bounds = element.getBoundingClientRect();
+                ripple.className = 'press-ripple';
+                ripple.style.left = `${event.clientX - bounds.left}px`;
+                ripple.style.top = `${event.clientY - bounds.top}px`;
+                element.querySelector('.press-ripple')?.remove();
+                element.append(ripple);
+                ripple.addEventListener('animationend', () => ripple.remove(), { once: true });
+                window.setTimeout(() => ripple.remove(), 700);
+            });
+        });
 
         emailButton.addEventListener('click', async () => {
             const emailAddress = 'shivamshah0910@gmail.com';
